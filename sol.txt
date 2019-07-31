@@ -1,0 +1,53 @@
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Scanner;
+public class Practice {
+   public static void main(String []args) throws Exception {
+
+
+	   String status="LOSE";
+	   int n = 0;
+	   
+	   Scanner sc = new Scanner(System.in);
+	    int t = sc.nextInt();
+        if(t>=1 && t<=10)
+	    {
+			for(int x = 0; x < t; x++)
+	    {
+				n = sc.nextInt();
+				if(n >= 1 && n <= 1000)
+				{
+	    Integer win [] = new Integer[n];
+	    Integer lose[] =new Integer[n];
+	    for ( int j = 0; j< n; j++)
+	    {
+	       lose[j] = sc.nextInt();
+	    }
+	    Arrays.sort(lose, Collections.reverseOrder());
+	    
+	    
+	    for(int i = 0; i< n; i++)
+	    {
+	       win[i] = sc.nextInt();
+	    }
+	    Arrays.sort(win, Collections.reverseOrder());
+	    
+	  loop:
+	     for(int i =0; i< n; i++)
+	     {
+	           if(win[i]>lose[i])
+	           {
+	        	   status = "WIN";
+	           }
+	            else
+	            	{
+	            		status = "LOSE";
+	            		break loop;
+	            }
+	        }
+	     System.out.println(status);
+	    }
+	   }
+	}
+   }
+}
